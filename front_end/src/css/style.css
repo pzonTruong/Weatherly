@@ -1,0 +1,140 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap');
+body{
+    font-family: 'Google Sans Code';
+    line-height: 1.5;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    max-width: 1170px;
+    margin:auto;
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul{
+    list-style: none;
+}
+
+.footer{
+    background-color: #24262b;
+    padding: 40px 0;
+    font-size: 20px;
+    display: flex;
+}
+
+.footer-col h5{
+    color: white;
+    position: relative;    
+}
+
+.footer-col a{
+    text-decoration: none;
+}
+
+.footer-col{
+    width: 25%;
+}
+
+.container{
+    justify-content: space-evenly;
+}
+
+.nav-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px;
+}
+
+.nav-bar *{
+    font-weight: 600;
+}
+
+.nav-bar img{
+    width: 150px;
+    height: 70px;
+    
+}
+
+.info-nav{
+    width: 450px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.info-nav a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+.content-body{
+    height: 800px;
+    width: 100%;
+    background-color: #8da6e4;
+    padding-left: 20px;
+}
+
+.log-btn{
+    font-size: 20px;
+    border-radius: 5px;
+    width: 200px;
+    border-style: none;
+    background-color: aliceblue;
+    height: 50px;
+}
+
+.log-btn:hover{
+    opacity: 85%;
+}
+
+.search{
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 65%;
+    justify-self: center;
+}
+
+.search img{
+    height: 27px;
+    width: 27px;
+}
+
+.search .inp-field{
+    margin-left: 10px;
+    height: 50px;
+    font-size:20px ;
+    border-radius: 5px;
+    padding-left: 10px;
+    width: 80%;
+}
+
+.search-button{
+    font-size: 20px;
+    font-weight: 300;
+    margin-left: 10px;
+    height: 50px;
+    width: 90px;
+    border-radius: 5px;
+}
+
+.social-medias i{
+    width: 70px;
+    height: 70px;
+}
+
+.footer-col h2{
+    color: wheat;
+}
