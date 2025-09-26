@@ -91,6 +91,8 @@ async function SearchCity() {
 
         document.getElementById("frc_content").classList.remove("hidden");
         document.getElementById("main_info").classList.remove("hidden");
+        document.getElementById("weather-info").classList.remove("hidden");
+        document.getElementById("frcast").classList.remove("hidden");
     } catch(err) {
         console.error("Error fetching weather: ", err);
     }
