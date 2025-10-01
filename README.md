@@ -1,5 +1,3 @@
-Of course. Here is a shorter, more concise version of the README file that focuses on introducing the website to a general audience.
-
 -----
 
 # Weatherly 🌦️
