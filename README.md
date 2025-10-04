@@ -1,5 +1,3 @@
-Of course. Here is a shorter, more concise version of the README file that focuses on introducing the website to a general audience.
-
 -----
 
 # Weatherly 🌦️
@@ -31,6 +29,6 @@ All weather data is provided by the reliable [OpenWeatherMap API](https://openwe
 
 ### Created By
 
-**[Your Name]**
+**PZon**
 
   - **GitHub:** [github.com/pzonTruong](https://www.google.com/search?q=https://github.com/pzonTruong)
