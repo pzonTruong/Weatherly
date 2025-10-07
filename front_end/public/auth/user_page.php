@@ -1,3 +1,15 @@
+<?php
+
+session_start();
+if (!isset($_SESSION['email'])) {
+  header("Location: index.php");
+  exit();
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,25 +29,27 @@
     <!-- <img src="/Weather-app/front_end/src/assets/images/main/logo2.png"
       alt="logo" class="w-15 md:w-20 h-auto"> -->
 
-    <a href="./index.html">
+    <a href="./user_page.php">
       <p class="font-bold text-3xl">WEATHERLY</p>
     </a>
 
     <div class="hidden md:flex space-x-6 text-lg font-semibold ">
-      <a href="/Weather-app/front_end/public/intro.html"
+      <a href="../intro.php"
         class="hover:text-blue-500 mr-[100px] text-2xl hover:text-3xl">Introduction</a>
-      <a href="/Weather-app/front_end/public/contact.html"
+      <a href="../contact.php"
         class="hover:text-blue-500 ml-[] text-2xl hover:text-3xl">Contact</a>
     </div>
 
-    <button class="px-5 py-2 text-lg bg-blue-100 rounded-lg hover:bg-blue-200 transition font-semibold">
-      Login / Sign up
+    <button onclick="window.location.href='logout.php'" class="px-5 py-2 text-lg bg-blue-100 rounded-lg hover:bg-blue-200 transition font-semibold">
+      Log out
     </button>
   </nav>
 
   <!-- Main Content -->
   <main class="flex-1 bg-blue-200 px-4 md:px-8 py-10">
     <!-- Search -->
+    <h1 class="text-center text-[24px] font-bold mb-[20px]">Welcome, <span><?= $_SESSION['name'] ?></span></h1>
+
     <div class="flex flex-col md:flex-row items-center justify-center gap-3 max-w-3xl mx-auto">
       <img src="/Weather-app/front_end/src/assets/images/main/MagnifyingGlass.png" alt="" class="w-6 h-6">
       <input id="search-box" type="text" placeholder="Search location"
@@ -127,16 +141,15 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-gradient-to-r from-sky-100 to-blue-200 text-gray-800 py-10">
+  <footer class="bg-gradient-to-r from-sky-100 to-blue-200 text-gray-800 py-10 mt-[80px]">
     <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-6">
-
       <!-- Info -->
       <div>
         <h2 class="text-2xl font-bold mb-4 text-blue-700">Info</h2>
         <ul class="space-y-2">
-          <li><a href="/Weather-app/front_end/public/aboutUs.html" class="hover:text-blue-600 transition">About us</a></li>
-          <li><a href="/Weather-app/front_end/public/ourServices.html" class="hover:text-blue-600 transition">Our services</a></li>
-          <li><a href="/Weather-app/front_end/public/privacyPolicy.html" class="hover:text-blue-600 transition">Privacy Policy</a></li>
+          <li><a href="../aboutUs.php" class="hover:text-blue-600 transition">About us</a></li>
+          <li><a href="../ourServices.php" class="hover:text-blue-600 transition">Our services</a></li>
+          <li><a href="../privacyPolicy.php" class="hover:text-blue-600 transition">Privacy Policy</a></li>
         </ul>
       </div>
 
@@ -144,9 +157,9 @@
       <div>
         <h2 class="text-2xl font-bold mb-4 text-blue-700">Get Help</h2>
         <ul class="space-y-2">
-          <li><a href="/Weather-app/front_end/public/faq.html" class="hover:text-blue-600 transition">FAQ</a></li>
-          <li><a href="/Weather-app/front_end/public/contact.html" class="hover:text-blue-600 transition">Contact</a></li>
-          <li><a href="/Weather-app/front_end/public/dataUsage.html" class="hover:text-blue-600 transition">Data usage</a></li>
+          <li><a href="../faq.php" class="hover:text-blue-600 transition">FAQ</a></li>
+          <li><a href="../contact.php" class="hover:text-blue-600 transition">Contact</a></li>
+          <li><a href="../dataUsage.php" class="hover:text-blue-600 transition">Data usage</a></li>
         </ul>
       </div>
 
@@ -154,28 +167,20 @@
       <div>
         <h2 class="text-2xl font-bold mb-4 text-blue-700">Follow me</h2>
         <div class="flex space-x-5 text-2xl">
-          <a href="https://www.facebook.com" title="Facebook" class="hover:text-blue-600 transition">
-            <i class="fab fa-facebook"></i>
-          </a>
-          <a href="https://x.com/PzonTruong" title="X" class="hover:text-blue-500 transition">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="https://github.com/pzonTruong" title="Github" class="hover:text-gray-700 transition">
-            <i class="fab fa-github"></i>
-          </a>
+          <a href="https://www.facebook.com" title="Facebook" class="hover:text-blue-600 transition"><i class="fab fa-facebook"></i></a>
+          <a href="https://x.com/PzonTruong" title="X" class="hover:text-blue-500 transition"><i class="fab fa-twitter"></i></a>
+          <a href="https://github.com/pzonTruong" title="Github" class="hover:text-gray-700 transition"><i class="fab fa-github"></i></a>
         </div>
       </div>
-
     </div>
 
-    <!-- Bottom note -->
-    <div class= "btm-note mt-10 text-center text-gray-600 text-sm" >
+    <div class="btm-note mt-10 text-center text-gray-600 text-sm">
     </div>
   </footer>
 
 
-  <script src="./front_end/src/pub-js/index.js"></script>
-  <script src="./front_end/src/pub-js/update_year.js"></script>
+  <script src="../../src/pub-js/index.js"></script>
+  <script src="../../src/pub-js/update_year.js"></script>
 </body>
 
 </html>

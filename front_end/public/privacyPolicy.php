@@ -1,3 +1,8 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,23 +18,52 @@
 
 <body>
     <nav class="flex items-center justify-between px-4 md:px-8 py-4 bg-white shadow-md">
-        <!-- <img src="/Weather-app/front_end/src/assets/images/main/logo2.png"
-      alt="logo" class="w-15 md:w-20 h-auto"> -->
+        <?php if (isset($_SESSION['name']) && isset($_SESSION['role']) && $_SESSION['role'] === 'user'): ?>
+            <!-- User logged in -->
+            <a href="./auth/user_page.php" class="font-bold text-3xl">WEATHERLY</a>
 
-        <a href="/Weather-app/index.html">
-            <p class="font-bold text-3xl">WEATHERLY</p>
-        </a>
+            <div class="hidden md:flex space-x-6 text-lg font-semibold">
+                <a href="./intro.php" class="hover:text-blue-500 text-2xl">Introduction</a>
+                <a href="./contact.php" class="hover:text-blue-500 text-2xl">Contact</a>
+            </div>
 
-        <div class="hidden md:flex space-x-6 text-lg font-semibold ">
-            <a href="/Weather-app/front_end/public/intro.html"
-                class="hover:text-blue-500 mr-[100px] text-2xl hover:text-3xl">Introduction</a>
-            <a href="/Weather-app/front_end/public/contact.html"
-                class="hover:text-blue-500 ml-[] text-2xl hover:text-3xl">Contact</a>
-        </div>
+            <div class="flex items-center space-x-4">
+                <span class="px-5 py-2 text-lg bg-blue-100 rounded-lg font-semibold">
+                    <?= htmlspecialchars($_SESSION['name']) ?>
+                </span>
+                <a href="./auth/logout.php" class="text-red-600 hover:underline">Logout</a>
+            </div>
 
-        <button class="px-5 py-2 text-lg bg-blue-100 rounded-lg hover:bg-blue-200 transition font-semibold">
-            Login / Sign up
-        </button>
+        <?php elseif (isset($_SESSION['name']) && isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+            <!-- Admin logged in -->
+            <a href="./auth/admin_page.php" class="font-bold text-3xl">WEATHERLY</a>
+
+            <div class="hidden md:flex space-x-6 text-lg font-semibold">
+                <a href="./intro.php" class="hover:text-blue-500 text-2xl">Introduction</a>
+                <a href="./contact.php" class="hover:text-blue-500 text-2xl">Contact</a>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <span class="px-5 py-2 text-lg bg-yellow-100 rounded-lg font-semibold">
+                    Admin: <?= htmlspecialchars($_SESSION['name']) ?>
+                </span>
+                <a href="./auth/logout.php" class="text-red-600 hover:underline">Logout</a>
+            </div>
+
+        <?php else: ?>
+            <!-- Guest view -->
+            <a href="../../index.php" class="font-bold text-3xl">WEATHERLY</a>
+
+            <div class="hidden md:flex space-x-6 text-lg font-semibold">
+                <a href="/front_end/public/intro.html" class="hover:text-blue-500 text-2xl">Introduction</a>
+                <a href="/front_end/public/contact.html" class="hover:text-blue-500 text-2xl">Contact</a>
+            </div>
+
+            <a href="./auth/login.php"
+                class="px-5 py-2 text-lg bg-blue-100 rounded-lg hover:bg-blue-200 transition font-semibold">
+                Login / Sign up
+            </a>
+        <?php endif; ?>
     </nav>
 
     <main class="max-w-4xl mx-auto px-6 py-12">
@@ -108,16 +142,15 @@
     </main>
 
 
-    <footer class="bg-gradient-to-r from-sky-100 to-blue-200 text-gray-800 py-10">
+    <footer class="bg-gradient-to-r from-sky-100 to-blue-200 text-gray-800 py-10 mt-[80px]">
         <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-6">
-
             <!-- Info -->
             <div>
                 <h2 class="text-2xl font-bold mb-4 text-blue-700">Info</h2>
                 <ul class="space-y-2">
-                    <li><a href="./aboutUs.html" class="hover:text-blue-600 transition">About us</a></li>
-                    <li><a href="./ourServices.html" class="hover:text-blue-600 transition">Our services</a></li>
-                    <li><a href="./privacyPolicy.html" class="hover:text-blue-600 transition">Privacy Policy</a></li>
+                    <li><a href="./aboutUs.php" class="hover:text-blue-600 transition">About us</a></li>
+                    <li><a href="./ourServices.php" class="hover:text-blue-600 transition">Our services</a></li>
+                    <li><a href="./privacyPolicy.php" class="hover:text-blue-600 transition">Privacy Policy</a></li>
                 </ul>
             </div>
 
@@ -125,9 +158,9 @@
             <div>
                 <h2 class="text-2xl font-bold mb-4 text-blue-700">Get Help</h2>
                 <ul class="space-y-2">
-                    <li><a href="./faq.html" class="hover:text-blue-600 transition">FAQ</a></li>
-                    <li><a href="./contact.html" class="hover:text-blue-600 transition">Contact</a></li>
-                    <li><a href="./dataUsage.html" class="hover:text-blue-600 transition">Data usage</a></li>
+                    <li><a href="./faq.php" class="hover:text-blue-600 transition">FAQ</a></li>
+                    <li><a href="./contact.php" class="hover:text-blue-600 transition">Contact</a></li>
+                    <li><a href="./dataUsage.php" class="hover:text-blue-600 transition">Data usage</a></li>
                 </ul>
             </div>
 
@@ -135,24 +168,17 @@
             <div>
                 <h2 class="text-2xl font-bold mb-4 text-blue-700">Follow me</h2>
                 <div class="flex space-x-5 text-2xl">
-                    <a href="https://www.facebook.com" title="Facebook" class="hover:text-blue-600 transition">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                    <a href="https://x.com/PzonTruong" title="X" class="hover:text-blue-500 transition">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="https://github.com/pzonTruong" title="Github" class="hover:text-gray-700 transition">
-                        <i class="fab fa-github"></i>
-                    </a>
+                    <a href="https://www.facebook.com" title="Facebook" class="hover:text-blue-600 transition"><i class="fab fa-facebook"></i></a>
+                    <a href="https://x.com/PzonTruong" title="X" class="hover:text-blue-500 transition"><i class="fab fa-twitter"></i></a>
+                    <a href="https://github.com/pzonTruong" title="Github" class="hover:text-gray-700 transition"><i class="fab fa-github"></i></a>
                 </div>
             </div>
-
         </div>
 
-        <!-- Bottom note -->
-        <div class="mt-10 text-center text-gray-600 text-sm btm-note">
+        <div class="btm-note mt-10 text-center text-gray-600 text-sm">
         </div>
-        <script src="/Weather-app/front_end/src/pub-js/update_year.js"></script>
+    </footer>
+    <script src="/Weather-app/front_end/src/pub-js/update_year.js"></script>
 </body>
 
 </html>
