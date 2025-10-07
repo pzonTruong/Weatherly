@@ -6,8 +6,6 @@
 
 <!-- **[Visit the Live Website](https://www.google.com/search?q=https://your-weatherly-app-url.com)** -->
 
-*(Replace with a screenshot of your application)*
-
 -----
 
 ### About Weatherly
@@ -19,7 +17,6 @@ Weatherly is a user-friendly weather app designed to give you instant and accura
   - ✨ **Current Weather:** Get up-to-the-minute data on temperature, humidity, and wind speed.
   - 🔍 **City Search:** Easily look up weather conditions for any city in the world.
   - 🌍 **Geolocation:** Use your current location for an instant, local weather report.
-  - 🌡️ **Unit Toggling:** Switch between Celsius ($^{\\circ}C$) and Fahrenheit ($^{\\circ}F$).
 
 ### Data Source
 
