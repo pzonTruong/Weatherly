@@ -5,7 +5,9 @@
 > A clean, simple, and responsive web application for real-time weather forecasts.
 
 <!-- **[Visit the Live Website](https://www.google.com/search?q=https://your-weatherly-app-url.com)** -->
-
+## Notice
+> Use xxamp to run the project.
+> Current only run on localhost.
 -----
 
 ### About Weatherly
